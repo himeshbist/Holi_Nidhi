@@ -85,8 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function getMessage() {
-      return `🌸 Happy Holi, My Dear Friend! 🎨🎉<br><br>
-      Rangon ki yeh bahaar, khushiyon ki yeh bauchar,<br>
-      Holi ka tyohaar laaye dher saari muskurahat aur pyaar! 💖🎊`;
+      return `🌸 गुलाल उड़ाए हवा में, बहार आई है,<br>
+खुशबू लिए फिज़ा में, बहार आई है।<br><br>
+
+सजने लगे हैं रंग में गली-मोहल्ले,<br>
+होली की आज महकती बहार आई है।<br><br>
+
+<b>"होली की ढेरों शुभकामनाएँ!" 🎉💖 </b>`;
   }
 });
