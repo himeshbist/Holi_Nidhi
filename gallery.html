@@ -46,6 +46,7 @@
             const toggleButton = document.getElementById("musicToggle");
             let isPlaying = localStorage.getItem("isPlaying") === "true"; // Load last state
             let firstClick = false; // Track user interaction
+            let wasPlaying = false; // Track if music was playing before tab switch
     
             function playMusic() {
                 music.play().then(() => {
@@ -55,6 +56,16 @@
                     document.removeEventListener("click", playMusic); // Remove event after first click
                 }).catch(err => console.log("Autoplay blocked! Waiting for user interaction."));
             }
+    
+            // ✅ Jab user tab minimize kare ya switch kare toh music pause ho jaye
+            document.addEventListener("visibilitychange", function () {
+                if (document.hidden) {
+                    wasPlaying = !music.paused; // Store play state
+                    music.pause();
+                } else if (wasPlaying) {
+                    music.play(); // Resume if it was playing before
+                }
+            });
     
             // 🟢 Click anywhere to play music instantly
             document.addEventListener("click", function () {
